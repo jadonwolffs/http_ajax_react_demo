@@ -1,3 +1,6 @@
+# Demo app for Http/Ajax section of [React - The Complete Guide](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+## Live app at: https://http-ajax-react-demo.herokuapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
