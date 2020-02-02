@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import axios from "../../axios";
 // import Post from "../../components/Post/Post";
 import Posts from "./Posts/Posts";
-// import FullPost from "../../components/FullPost/FullPost";
+import FullPost from "../Blog/FullPost/FullPost";
 import NewPost from "./NewPost/NewPost";
 import "./Blog.css";
 import { Route, NavLink } from "react-router-dom";
@@ -15,7 +15,9 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <NavLink exact to="/">Home</NavLink>
+                <NavLink exact to="/" activeClassName="active">
+                  Home
+                </NavLink>
               </li>
               <li>
                 <NavLink exact to={{ pathname: "/new", hash: "#submit" }}>
@@ -28,6 +30,7 @@ class Blog extends Component {
 
         <Route path="/" exact component={Posts} />
         <Route path="/new" exact component={NewPost} />
+        <Route path="/posts/:id" exact component={FullPost} />
         {/* <section>
           <FullPost
             id={this.state.selectedPost}
