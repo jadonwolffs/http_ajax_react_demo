@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import axios from "../../axios";
 // import Post from "../../components/Post/Post";
 import Posts from "./Posts/Posts";
-import FullPost from "../Blog/FullPost/FullPost";
+// import FullPost from "../Blog/FullPost/FullPost";
 import NewPost from "./NewPost/NewPost";
 import "./Blog.css";
 import { Route, NavLink, Switch } from "react-router-dom";
@@ -28,9 +28,9 @@ class Blog extends Component {
           </nav>
         </header>
         <Switch>
-          <Route path="/" exact component={Posts} />
           <Route path="/new" exact component={NewPost} />
-          <Route path="/posts/:id" exact component={FullPost} />
+          <Route path="/posts"  component={Posts} />
+          {/* <Route path="/:id" exact component={FullPost} /> */}
         </Switch>
       </div>
     );
