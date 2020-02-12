@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-// import axios from "../../axios";
-// import Post from "../../components/Post/Post";
 import Posts from "./Posts/Posts";
-// import FullPost from "../Blog/FullPost/FullPost";
-import NewPost from "./NewPost/NewPost";
+// import NewPost from "./NewPost/NewPost";
 import "./Blog.css";
 import { Route, NavLink, Switch, Redirect } from "react-router-dom";
-
+import asyncComponent from '../../hoc/asyncComponent';
+const AsyncNewPost = asyncComponent(()=>import("./NewPost/NewPost"));
 class Blog extends Component {
   state = {
-    auth: false
+    auth: true
   };
   render() {
     return (
@@ -32,10 +30,11 @@ class Blog extends Component {
         </header>
         <Switch>
           {this.state.auth ? (
-            <Route path="/new" exact component={NewPost} />
+            <Route path="/new" exact component={AsyncNewPost} />
           ) : null}
           <Route path="/posts" component={Posts} />
-          <Redirect from="/" to="/posts" />
+          <Route render={()=><h1>Not found</h1>}/>
+          {/* <Redirect from="/" to="/posts" /> */}
           {/* <Route path="/:id" exact component={FullPost} /> */}
         </Switch>
       </div>
