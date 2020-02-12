@@ -5,9 +5,12 @@ import Posts from "./Posts/Posts";
 // import FullPost from "../Blog/FullPost/FullPost";
 import NewPost from "./NewPost/NewPost";
 import "./Blog.css";
-import { Route, NavLink, Switch, Redirect} from "react-router-dom";
+import { Route, NavLink, Switch, Redirect } from "react-router-dom";
 
 class Blog extends Component {
+  state = {
+    auth: false
+  };
   render() {
     return (
       <div className="Blog">
@@ -28,9 +31,11 @@ class Blog extends Component {
           </nav>
         </header>
         <Switch>
-          <Route path="/new" exact component={NewPost} />
-          <Route path="/posts"  component={Posts} />
-          <Redirect from="/" to="/posts"/>
+          {this.state.auth ? (
+            <Route path="/new" exact component={NewPost} />
+          ) : null}
+          <Route path="/posts" component={Posts} />
+          <Redirect from="/" to="/posts" />
           {/* <Route path="/:id" exact component={FullPost} /> */}
         </Switch>
       </div>
